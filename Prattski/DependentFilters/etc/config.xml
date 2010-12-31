@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	
+    <modules>
+        <Prattski_DependentFilters>
+            <version>0.1.0</version>
+        </Prattski_DependentFilters>
+    </modules>
+   
+    <global>
+    	
+		<blocks>
+			<prattski_dependentfilters>
+				<class>Prattski_DependentFilters_Block</class>
+			</prattski_dependentfilters>
+			<adminhtml>
+				<rewrite>
+					<catalog_product_attribute_edit_tab_main>Prattski_DependentFilters_Block_Adminhtml_Catalog_Product_Attribute_Edit_Tab_Main</catalog_product_attribute_edit_tab_main>
+				</rewrite>
+			</adminhtml>
+            <catalog>
+                <rewrite>
+                    <layer_view>Prattski_DependentFilters_Block_Catalog_Layer_View</layer_view>
+                </rewrite>
+            </catalog>
+		</blocks>
+		
+		<models>
+			<prattski_dependentfilters>
+				<class>Prattski_DependentFilters_Model</class>
+			</prattski_dependentfilters>
+			
+			<catalog>
+				<rewrite>
+					<resource_eav_attribute>Prattski_DependentFilters_Model_Resource_Eav_Attribute</resource_eav_attribute>
+				</rewrite>
+			</catalog>
+			<catalog_resource_eav_mysql4>
+				<rewrite>
+					<attribute>Prattski_DependentFilters_Model_Resource_Eav_Mysql4_Attribute</attribute>
+				</rewrite>
+			</catalog_resource_eav_mysql4>
+		</models>
+		
+		<resources>
+            <prattski_dependentfilters_setup>
+                <setup>
+                    <module>Prattski_DependentFilters</module>
+					<class>Prattski_DependentFilters_Model_Resource_Eav_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+			</prattski_dependentfilters_setup>
+			<prattski_dependentfilters_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </prattski_dependentfilters_write>
+            <prattski_dependentfilters_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </prattski_dependentfilters_read>
+		</resources>
+
+	</global>
+	
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<Prattski_DependentFilters before="Mage_Adminhtml">Prattski_DependentFilters</Prattski_DependentFilters>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+
+</config>
