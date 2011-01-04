@@ -49,11 +49,13 @@ class Prattski_DependentFilters_Model_Catalog_Layer_Filters
         								'value' => $option['option_id'],
         								'label'	=> $option['value']);
         		}
-        		
-        		$data[] = array(
+
+                if ($row['frontend_label'] != 'Price') {
+                    $data[] = array(
         				'value' => $optionsArray,
         				'label'	=> $row['frontend_label']
         				);
+                }
         	}
         }
         
